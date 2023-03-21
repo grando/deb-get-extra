@@ -1,0 +1,12 @@
+DEFVER=1
+ARCHS_SUPPORTED="amd64 arm64 armhf"
+CODENAMES_SUPPORTED="buster bullseye bookworm sid focal jammy kinetic lunar"
+get_github_releases "alacritty/alacritty" "latest"
+if [ "${ACTION}" != prettylist ]; then
+    URL="$(grep "browser_download_url.*\.deb\"" "${CACHE_FILE}" | head -n1 | cut -d <delimiter> -f <field>)"
+    VERSION_PUBLISHED="$(echo "${URL}" | cut -d <delimiter> -f <field>)"
+fi
+EULA="Apache License, Version 2.0"
+PRETTY_NAME="alacritty"
+WEBSITE="alacritty.org"
+SUMMARY="A fast, cross-platform, OpenGL terminal emulator"
